@@ -5,53 +5,28 @@
  *
  *
  */
-void _strtok(char *string, char **tok_string)
+char **_strtok(char *string)
 {
-        unsigned int count = 0;
+        unsigned int count = 0, i = 0;
 	char *token;
-	/* char *string_copy; */
-        /*  */
-	/* strcpy(string_copy, string); */
-
-	token = strtok(string, " ");
-	while (token)
-	{
-		count++;
-		token = strtok(NULL, " ");
-	}
-	/* if (token == NULL) */
-	/* { */
-	/* 	printf("\tNo separators found"); */
-	/* 	return; */
-	/* } */
-
-	*tok_string = malloc(sizeof(char *) * count + 1);
+	char **tok_string = NULL;
+	
+	printf("String: %s\n", string);
+	tok_string = malloc(sizeof(char *) * 100);
 	if (tok_string == NULL)
-		return;
-
-	count = 0;
-	/* token = strtok(string_copy, " "); */
-	token = strtok(string, " ");
+		return (NULL);
+	for (; i < 100; i++)
+		tok_string[i] = malloc(50 * sizeof(char));
+	token = strtok(string, " \t\r\n");
 	while (token)
 	{
-		tok_string[count] = malloc(strlen(token) * sizeof(char) );
-		if (tok_string[count] == NULL)
-			return;
-
 		tok_string[count] = token;
-
+		token = strtok(NULL, " \t\r\n");
+		printf("Count: %d, token: %s\n", count, tok_string[count]);
 		count++;
-		token = strtok(NULL, " ");
 	}
-
-	/* tok_string[count] = NULL; */
-
-	/* tok_string[count] = NULL; */
-
-	/* count = 0; */
-	/* while (string_copy_token) */
-	/* { */
-	/* 	tok_string[count++] = token; */
-	/* 	token = strtok(NULL, " "); */
-	/* } */
+	tok_string[count] = NULL;
+	for (i = 0; tok_string[i] != NULL; i++)
+		printf("%s\n", tok_string[i]);
+	return (tok_string);
 }
