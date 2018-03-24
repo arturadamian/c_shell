@@ -3,11 +3,14 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <string.h>
 #include <signal.h>
+
 #include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 int _putchar(char c);
 int _strcmp(const char *s1, const char *s2);
