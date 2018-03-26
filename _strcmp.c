@@ -4,20 +4,25 @@
  * _strcmp - compares two strings
  * @s1: first string to compare
  * @s2: second string to compare
+ * @beg: beginning of the interval
+ * @end: end of the interval
  *
- * Return: int
+ * Return: the result of comparison between two sequences
  */
-int _strcmp(const char *s1, const char *s2)
+bool _strcmp(const char *s1, const char *s2, int beg, int end)
 {
-	int i = 0;
+	if (!s1 && !s2)
+		return (true);
 
-	while (s1[i] != '\0' && s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+	if (!s1 || !s2 || beg > end)
+		return (false);
 
-		i++;
-	}
+	do {
+		if (s1[beg] != s2[beg])
+			return (false);
 
-	return (0);
+		beg++;
+	} while (beg != end);
+
+	return (true);
 }
