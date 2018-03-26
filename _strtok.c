@@ -1,38 +1,37 @@
 #include "shell.h"
 
 /**
- *
+ * _strtok - finds and returns 
  *
  *
  */
-char **_strtok(char *string)
+char **_strtok(char *s)
 {
-        unsigned int count = 0, i = 0;
+        unsigned int i;
 	char *token;
-	char **tok_string = NULL;
+	char **tokens = NULL;
+	const unsigned int len = _strlen(s);
 
-	/* printf("String: %s\n", string); */
-	tok_string = malloc(sizeof(char *) * 100);
-
-	if (tok_string == NULL)
+	tokens = malloc(len * sizeof(char *));
+	if (tokens == NULL)
 		return (NULL);
 
-	for (; i < 100; i++)
-		tok_string[i] = malloc(50 * sizeof(char));
+	token = strtok(s, " \t\r\n");
 
-	token = strtok(string, " \t\r\n");
-
+	i = 0;
 	while (token)
 	{
-		tok_string[count] = token;
+		tokens[i] = malloc(_strlen(token) * sizeof(char));
+		if (tokens == NULL)
+			return (NULL);
+
+		tokens[i] = token;
+
 		token = strtok(NULL, " \t\r\n");
-		/* printf("Count: %d, token: %s\n", count, tok_string[count]); */
-		count++;
+		i++;
 	}
 
-	tok_string[count] = NULL;
-	/* for (i = 0; tok_string[i] != NULL; i++) */
-	/* 	printf("%s\n", tok_string[i]); */
+	tokens[i] = NULL;
 
-	return (tok_string);
+	return (tokens);
 }
