@@ -13,9 +13,18 @@
 #include <sys/stat.h>
 
 int _putchar(char c);
-int _strcmp(const char *s1, const char *s2);
-void exit_handler(char *line, ssize_t length);
+
+void _strcpy(char *dest, const char *src);
+int _strlen(const char *s);
+void _strcat(char *dest, const char *src);
+bool _strcmp(const char *s1, const char *s2, int beg, int end);
+char **_strtok(char *s);
+
+int find_str_seq(const char *s, const char *sep, int idx);
+void get_str_seq(const char *s, int beg, int end, char **res);
+
 void sig_handler(int sig_num);
-char **_strtok(char *string);
+void exit_handler(char *line, ssize_t length);
+char *path_resolver(char **env, char *cmd);
 
 #endif
