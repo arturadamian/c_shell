@@ -5,8 +5,8 @@
  * then copies it into the string passed by the poiner.
  * @s: string constant from where the token would be taken
  * @beg: the beginning of the interval of s[beg:end]
- * @beg: the end of the interval of s[beg:end]
- * @result: the result
+ * @end: the end of the interval of s[beg:end]
+ * @res: the result
  *
  * Return: void
  */

@@ -23,8 +23,9 @@ char **_strtok(char *s);
 int find_str_seq(const char *s, const char *sep, int idx);
 void get_str_seq(const char *s, int beg, int end, char **res);
 
+int change_dir(const char *str, char **env);
 void sig_handler(int sig_num);
 void exit_handler(char *line, ssize_t length);
 char *path_resolver(char **env, char *cmd);
-
+void print_env(char **env);
 #endif

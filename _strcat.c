@@ -9,11 +9,11 @@
  */
 void _strcat(char *dest, const char *src)
 {
-        int i;
-        int len = _strlen(dest);
+	int i;
+	int len = _strlen(dest);
 
-        for (i = 0; src[i] != '\0'; i++)
-                dest[len++] = src[i];
+	for (i = 0; src[i] != '\0'; i++)
+		dest[len++] = src[i];
 
-        dest[len] = '\0';
+	dest[len] = '\0';
 }

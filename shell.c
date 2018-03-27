@@ -8,53 +8,45 @@
  *
  * Return: 0
  */
-int main (int ac, char *av[], char *env[])
+int main(int ac, char *av[], char *env[])
 {
-	extern char **environ;
 	size_t buf;
-	char *line = NULL;
+	char *line = NULL, *err_msg = "No such file or directory";
 	char **tok_s = NULL;
-	char *err_msg = "No such file or directory";
 	pid_t frk;
-
-	/* signal(SIGINT, sig_handler); */
 
 	if (ac == 1)
 		while (true)
 		{
 			line = NULL;
-			printf("($) ");
+			_putchar('$');
+			_putchar(' ');
 			getline(&line, &buf, stdin);
-
 			exit_handler(line, buf);
-
 			tok_s = _strtok(line);
-
+			if (_strcmp(tok_s[0], "env", 0, 2))
+				print_env(env);
 			frk = fork();
 			if (frk < 0)
 				return (-1);
-
 			if (frk == 0)
 			{
-				if (execve(path_resolver(environ, tok_s[0]),
+				if (execve(path_resolver(env, tok_s[0]),
 							tok_s, NULL) == -1)
 				{
-					printf("%s\n", err_msg);
+					write(STDOUT_FILENO, err_msg, 25);
 					return (-1);
 				}
 			}
 			else
 			{
-				wait (NULL);
+				wait(NULL);
 			}
 		}
 	else
 	{
 		(void) av;
 		(void) env;
-		/* printf("%s\n", err_msg); */
-		/* code for the case when our shell was called as program */
 	}
-
 	return (0);
 }

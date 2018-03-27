@@ -1,13 +1,14 @@
 #include "shell.h"
 
 /**
- * _strtok - finds and returns 
+ * _strtok - parsing the string
+ * @s: pointer to a string
  *
- *
+ * Return: array of strings
  */
 char **_strtok(char *s)
 {
-        unsigned int i;
+	unsigned int i;
 	char *token;
 	char **tokens = NULL;
 	const unsigned int len = _strlen(s);
