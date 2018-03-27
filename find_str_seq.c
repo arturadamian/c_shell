@@ -9,26 +9,45 @@
  *
  * Return: the index of the `sep` inside the string `s`
  */
-int find_str_seq(const char *s, const char *sep, int idx)
+Interval find_str_seq(const char *s, const char *sep, int idx)
 {
-	int i = 0;
+	Interval itv;
+	int i = 0, j = 0, k = 1;
+	int n = find_chars_number(s, sep, idx) + 1;
+	int array[n];
+	int o = 0;
 
-	/* form the array of 2 elements */
-		/* 0: 1st separator */
-		/* 1: separator next to it */
+	/* printf("number of separators in the string: %d\n", n); */
+	array[0] = idx;
 
 	while (sep[i])
 	{
-		while (s[idx])
+		j = idx;
+		while (s[j])
 		{
-			/* printf("sep[i]: %c, s[idx]: %c\n", sep[i], s[idx]); */
-			if (s[idx] == sep[i])
-				return (idx);
+			if (s[j] == sep[i])
+			{
+				array[k] = j;
+				k++;
+			}
 
-			idx++;
+			j++;
 		}
 		i++;
 	}
 
-	return (idx);
+	o = sizeof(array) / sizeof(array[0]);
+	insertion_sort(array, o);
+
+	/* i = 0; */
+	/* while (i < n) */
+	/* { */
+	/* 	printf("%d index: %d\n", i, array[i]); */
+	/* 	i++; */
+	/* } */
+
+	itv.beg = array[0];
+	itv.end = array[1];
+
+	return (itv);
 }

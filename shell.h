@@ -12,6 +12,16 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+/**
+ * struct Interval - an interval beteween two separators in the string
+ * @beg: the beginning, integer
+ * @end: the end, integer
+ */
+typedef struct Interval {
+	int beg;
+	int end;
+} Interval;
+
 int _putchar(char c);
 
 void _strcpy(char *dest, const char *src);
@@ -20,8 +30,10 @@ void _strcat(char *dest, const char *src);
 bool _strcmp(const char *s1, const char *s2, int beg, int end);
 char **_strtok(char *s);
 
-int find_str_seq(const char *s, const char *sep, int idx);
+Interval find_str_seq(const char *s, const char *sep, int idx);
 void get_str_seq(const char *s, int beg, int end, char **res);
+int find_chars_number(const char *s, const char *c, int idx);
+void insertion_sort(int arr[], int n);
 
 void sig_handler(int sig_num);
 void exit_handler(char *line, ssize_t length);

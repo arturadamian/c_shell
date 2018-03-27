@@ -1,34 +1,57 @@
 #include "shell.h"
 
 /**
- * _strtok - finds and returns 
+ * _strtok - finds and returns
  *
  *
  */
 char **_strtok(char *s)
 {
-        unsigned int i;
+        int i = 0;
+	Interval itv;
 	char *token;
 	char **tokens = NULL;
-	const unsigned int len = _strlen(s);
+	const int len = _strlen(s);
 
-	tokens = malloc(len * sizeof(char *));
+	int tok_beg = 0, tok_end = 0;
+
+	tokens = malloc(sizeof(char *) * len);
 	if (tokens == NULL)
 		return (NULL);
 
-	token = strtok(s, " \t\r\n");
+	itv = find_str_seq(s, " \t\r\n", tok_beg);
+	tok_end = itv.end;
 
-	i = 0;
-	while (token)
+	token = malloc(sizeof(char) * len);
+	if (!token)
+		return (NULL);
+
+	get_str_seq(s, tok_beg, tok_end, &token);
+
+	tokens[i] = malloc(_strlen(token) * sizeof(char));
+	if (tokens == NULL)
+		return (NULL);
+
+	_strcpy(tokens[i], token);
+
+	while (len > tok_beg)
 	{
+		i++;
+		tok_beg = tok_end + 1;
+
+		if (len == tok_beg)
+		{
+			break;
+		}
+
+		itv = find_str_seq(s, " \t\r\n", tok_beg);
+		tok_end = itv.end;
+		get_str_seq(s, tok_beg, tok_end, &token);
+
 		tokens[i] = malloc(_strlen(token) * sizeof(char));
 		if (tokens == NULL)
 			return (NULL);
-
-		tokens[i] = token;
-
-		token = strtok(NULL, " \t\r\n");
-		i++;
+		_strcpy(tokens[i], token);
 	}
 
 	tokens[i] = NULL;

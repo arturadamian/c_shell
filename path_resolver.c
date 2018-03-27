@@ -13,8 +13,9 @@ char *path_resolver(char **env, char *cmd)
 {
 	char *path, *tok, *bin;
 	int c, path_len = 0, tok_beg = 0, tok_end = 5;
+	Interval itv;
 
-	/* printf("separator is at the index #: %d", find_str_seq("ololo, trololo\n", ",\n", 0)); */
+	/* find_str_seq("lol troll, ololo \ntrololo ls -la", " ,\n", 0); */
 
 	for (c = 0; env[c]; c++)
 		if (_strcmp("PATH=", env[c], tok_beg, tok_end - 1))
@@ -24,7 +25,8 @@ char *path_resolver(char **env, char *cmd)
 
 	path_len = _strlen(path);
 	tok_beg = tok_end + 1; /* separator */
-	tok_end = find_str_seq(path, ":", tok_beg);
+	itv = find_str_seq(path, ":", tok_beg);
+	tok_end = itv.end;
 
 	tok = malloc(sizeof(char) * (tok_end - tok_beg));
 	if (!tok)
@@ -49,7 +51,9 @@ char *path_resolver(char **env, char *cmd)
 			return (cmd);
 
 		tok_beg = tok_end + 1; /* separator */
-		tok_end = find_str_seq(path, ":", tok_beg);
+		/* tok_end = find_str_seq(path, ":", tok_beg); */
+		itv = find_str_seq(path, ":", tok_beg);
+		tok_end = itv.end;
 
 		get_str_seq(path, tok_beg, tok_end, &tok);
 

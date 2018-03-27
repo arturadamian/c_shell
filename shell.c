@@ -17,14 +17,21 @@ int main (int ac, char *av[], char *env[])
 	char *err_msg = "No such file or directory";
 	pid_t frk;
 
-	/* signal(SIGINT, sig_handler); */
+	signal(SIGINT, sig_handler);
 
 	if (ac == 1)
 		while (true)
 		{
 			line = NULL;
 			printf("($) ");
-			getline(&line, &buf, stdin);
+
+
+			if (getline(&line, &buf, stdin) == -1)
+			{
+				_putchar('\n');
+				exit(0);
+			}
+
 
 			exit_handler(line, buf);
 
@@ -52,7 +59,6 @@ int main (int ac, char *av[], char *env[])
 	{
 		(void) av;
 		(void) env;
-		/* printf("%s\n", err_msg); */
 		/* code for the case when our shell was called as program */
 	}
 
