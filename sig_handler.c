@@ -8,5 +8,5 @@
 void sig_handler(int sig_num)
 {
 	if (sig_num == SIGINT)
-		_putchar(13);
+		write(STDOUT_FILENO, "\n$ ", 3);
 }
