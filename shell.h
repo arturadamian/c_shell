@@ -25,7 +25,11 @@ void get_str_seq(const char *s, int beg, int end, char **res);
 
 int change_dir(const char *str, char **env);
 void sig_handler(int sig_num);
-void exit_handler(char *line, ssize_t length);
+void exit_handler(char *line, ssize_t length, char **tokens);
 char *path_resolver(char **env, char *cmd);
 void print_env(char **env);
+
+void write_prompt(int ac);
+bool env_handler(char *s, char *env[]);
+
 #endif
