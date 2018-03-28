@@ -1,8 +1,8 @@
 # 0x15. C - Simple Shell
 
 ### Description
-This project is a mirror of `sh` command-line interpreter (shell), written by Ken Thompson
-in a limited scope .
+This is a school project which goal is to mirror the `sh` command-line interpreter (shell), written by Ken Thompson
+in a limited scope.
 
 ### Authors
 Artur Adamian [Twitter](https://twitter.com/arturadamian) | [Email](arturadamian@gmail.com)
