@@ -24,5 +24,8 @@ bool _strcmp(const char *s1, const char *s2, int beg, int end)
 		beg++;
 	} while (beg != end);
 
+	/* free(s1); */
+	/* free(s2); */
+
 	return (true);
 }

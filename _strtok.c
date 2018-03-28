@@ -22,12 +22,11 @@ char **_strtok(char *s)
 	i = 0;
 	while (token)
 	{
-		tokens[i] = malloc(_strlen(token) * sizeof(char));
+		tokens[i] = malloc(_strlen(token) * (sizeof(char) + 1));
 		if (tokens == NULL)
 			return (NULL);
 
 		tokens[i] = token;
-
 		token = strtok(NULL, " \t\r\n");
 		i++;
 	}
