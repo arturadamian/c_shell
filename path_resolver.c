@@ -18,11 +18,15 @@ char *path_resolver(char **env, char *cmd)
 	for (c = 0; env[c]; c++)
 		if (_strcmp("PATH=", env[c], tok_beg, tok_end - 1))
 			path = env[c];
-	/* lol_ololo(path, tok, tok_beg, tok_end); */
+
 	path_len = _strlen(path);
+
+	if (path_len == 5)
+		return (NULL);
+
 	tok_beg = tok_end + 1; /* separator */
 	tok_end = find_str_seq(path, ":", tok_beg);
-	tok = malloc(sizeof(char) * (tok_end - tok_beg));
+	tok = malloc(sizeof(char) * (path_len));
 	if (!tok)
 		return (NULL);
 	bin = malloc(sizeof(tok) + sizeof(cmd));
@@ -38,7 +42,12 @@ char *path_resolver(char **env, char *cmd)
 		/* no more tokens in the path */
 		/* return the command as is */
 		if (path_len == tok_end)
+		{
+			/* free(bin); */
+			/* free(tok); */
 			return (cmd);
+		}
+
 		tok_beg = tok_end + 1; /* separator */
 		tok_end = find_str_seq(path, ":", tok_beg);
 		get_str_seq(path, tok_beg, tok_end, &tok);
@@ -47,5 +56,6 @@ char *path_resolver(char **env, char *cmd)
 		_strcat(bin, cmd);
 	}
 	/* file exists */
+	/* free(tok); */
 	return (bin);
 }
