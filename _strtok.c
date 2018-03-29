@@ -9,12 +9,10 @@
  */
 char **_strtok(char *s)
 {
-        int i = 0;
+	int i = 0, tok_beg = 0, tok_end = 0, len = _strlen(s);
 	Interval itv;
 	char *token;
 	char **tokens = NULL;
-	const int len = _strlen(s);
-	int tok_beg = 0, tok_end = 0;
 
 	tokens = malloc(sizeof(char *) * len);
 	if (tokens == NULL)
@@ -26,9 +24,7 @@ char **_strtok(char *s)
 	token = malloc(sizeof(char) * len);
 	if (!token)
 		return (NULL);
-
 	get_str_seq(s, tok_beg, tok_end, &token);
-
 	tokens[i] = malloc(_strlen(token) * sizeof(char));
 	if (tokens == NULL)
 		return (NULL);
@@ -39,7 +35,6 @@ char **_strtok(char *s)
 	{
 		i++;
 		tok_beg = tok_end + 1;
-
 		if (len == tok_beg)
 			break;
 
@@ -48,8 +43,6 @@ char **_strtok(char *s)
 		get_str_seq(s, tok_beg, tok_end, &token);
 
 		tokens[i] = malloc(_strlen(token) * sizeof(char));
-		if (tokens == NULL)
-			return (NULL);
 		_strcpy(tokens[i], token);
 	}
 
