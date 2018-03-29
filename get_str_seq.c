@@ -14,6 +14,8 @@ void get_str_seq(const char *s, int beg, int end, char **res)
 {
 	int i = 0;
 
+	/* printf("beg: %d, end: %d\n", beg, end); */
+
 	while (beg != end)
 		(*res)[i++] = s[beg++];
 
