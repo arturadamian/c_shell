@@ -2,14 +2,16 @@
 
 /**
  * proc_handler - creates and handles the child process
+ * @app: the source app, ./hsh
  * @path: command or resolved path to executable
  * @toks: array of tokens to pass to execve() function
  * @err_msg: an error message
- * @c: errors counter
+ * @c: pointer to errors counter
  *
  * Return: void
  */
-void proc_handler(char *path, char **toks, char *err_msg, unsigned int c)
+void proc_handler(char *app, char *path, char **toks,
+		char *err_msg, unsigned int *c)
 {
 	pid_t pid = fork();
 
@@ -20,8 +22,9 @@ void proc_handler(char *path, char **toks, char *err_msg, unsigned int c)
 	{
 		if (execve(path, toks, NULL) == -1)
 		{
-			write_error(path, ++c, err_msg);
-			exit(-1);
+			*c = *c + 1;
+			write_error(app, path, *c, err_msg);
+			exit(1);
 		}
 	}
 	else

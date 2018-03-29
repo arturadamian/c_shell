@@ -47,8 +47,8 @@ bool env_handler(char *s, char *env[]);
 char *_strrev (char *str);
 unsigned int num_len(unsigned int n);
 char *_itoa(unsigned int num);
-void write_error(char *src, unsigned int err_code, char *msg);
-
-void proc_handler(char *path, char **toks, char *err_msg, unsigned int c);
+void proc_handler(char *app, char *path, char **toks,
+		char *err_msg, unsigned int *c);
+void write_error(char *app, char *src, unsigned int err_code, char *msg);
 
 #endif

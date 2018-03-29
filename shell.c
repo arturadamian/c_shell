@@ -20,7 +20,7 @@ int main(int ac, char *av[], char *env[])
 	{
 		signal(SIGINT, sig_handler);
 
-		if (ac == 1)
+		if (isatty(STDIN_FILENO))
 			write_prompt(ac);
 
 		ch = getline(&line, &buf, stdin);
@@ -30,12 +30,9 @@ int main(int ac, char *av[], char *env[])
 		{
 			exit_handler(line, ch);
 			path = path_resolver(env, toks[0]);
-			proc_handler(path, toks, err_msg, c);
+			proc_handler(av[0], path, toks, err_msg, &c);
 		}
 	}
-
-	(void) av;
-	(void) env;
 
 	return (0);
 }
