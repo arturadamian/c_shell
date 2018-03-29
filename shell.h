@@ -40,4 +40,15 @@ void sig_handler(int sig_num);
 void exit_handler(char *line, ssize_t length);
 char *path_resolver(char **env, char *cmd);
 void print_env(char **env);
+
+void write_prompt(int ac);
+bool env_handler(char *s, char *env[]);
+
+char *_strrev (char *str);
+unsigned int num_len(unsigned int n);
+char *_itoa(unsigned int num);
+void write_error(char *src, unsigned int err_code, char *msg);
+
+void proc_handler(char *path, char **toks, char *err_msg, unsigned int c);
+
 #endif
