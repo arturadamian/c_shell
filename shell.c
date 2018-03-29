@@ -8,54 +8,34 @@
  *
  * Return: exit code / error code
  */
-int main (int ac, char *av[], char *env[])
+int main(int ac, char *av[], char *env[])
 {
-	extern char **environ;
+	unsigned int c = 0;
 	size_t buf;
-	char *line = NULL;
-	char **tok_s = NULL;
-	char *err_msg = "No such file or directory";
-	pid_t frk;
+	ssize_t ch;
+	char **toks = NULL;
+	char *path = NULL, *line = NULL, *err_msg = "not found\n";
 
-	signal(SIGINT, sig_handler);
-
-	if (ac == 1)
-		while (true)
-		{
-			printf("$ ");
-
-			if (getline(&line, &buf, stdin) == -1)
-			{
-				_putchar('\n');
-				exit(0);
-			}
-
-			exit_handler(line, buf);
-
-			tok_s = _strtok(line);
-
-			frk = fork();
-			if (frk < 0)
-				return (-1);
-
-			if (frk == 0)
-			{
-				if (execve(path_resolver(environ, tok_s[0]),
-							tok_s, NULL) == -1)
-				{
-					printf("%s\n", err_msg);
-					return (-1);
-				}
-			}
-			else
-				wait (NULL);
-		}
-	else
+	while (true)
 	{
-		/* code for the case when our shell was called as program */
-		(void) av;
-		(void) env;
+		signal(SIGINT, sig_handler);
+
+		if (ac == 1)
+			write_prompt(ac);
+
+		ch = getline(&line, &buf, stdin);
+		toks = _strtok(line);
+
+		if (!env_handler(toks[0], env))
+		{
+			exit_handler(line, ch);
+			path = path_resolver(env, toks[0]);
+			proc_handler(path, toks, err_msg, c);
+		}
 	}
+
+	(void) av;
+	(void) env;
 
 	return (0);
 }
