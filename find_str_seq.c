@@ -39,13 +39,6 @@ Interval find_str_seq(const char *s, const char *sep, int idx)
 	o = sizeof(array) / sizeof(array[0]);
 	insertion_sort(array, o);
 
-	/* i = 0; */
-	/* while (i < n) */
-	/* { */
-	/* 	printf("%d index: %d\n", i, array[i]); */
-	/* 	i++; */
-	/* } */
-
 	itv.beg = array[0];
 	itv.end = array[1];
 
