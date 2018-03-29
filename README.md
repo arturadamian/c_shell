@@ -1,11 +1,14 @@
 # 0x15. C - Simple Shell
 
+[The gates of shell](USE://raw.githubusercontent.com/Cu7ious/simple_shell/medium/assets/shell.jpeg)
+
 ### Description
 This is a school project which goal is to mirror the `sh` command-line interpreter (shell), written by Ken Thompson
 in a limited scope.
 
 ### Authors
 Artur Adamian [Twitter](https://twitter.com/arturadamian) | [Email](arturadamian@gmail.com)
+
 Sergii Garkusha [Twitter](https://twitter.com/Cu7ious) | [Email](garkusha.sergiy@gmail.com)
 
 ### Synopsis
