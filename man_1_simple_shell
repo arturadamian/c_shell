@@ -1,0 +1,45 @@
+.TH simple_shell "March, 28th 2018" "1" "simple shell (aka hsh) Manual"
+.SH NAME
+simple_shell
+
+The simple shell loosly recreates the original shell, written by Ken Thompson
+.SH SYNOPSIS
+
+.B $ ./hsh
+.PP
+.BR $
+.PP
+.BR $ ls /
+.PP
+.B bin  dev  home  initrd.img.old  lib64   media  opt   root  sbin  sys  usr  var  vmlinuz.old
+.PP
+.B boot  etc  initrd.img  lib   lost+found  mnt  proc  run   srv   tmp  vagrant  vmlinuz
+
+.SH DESCRIPTION
+Runs commands in both interactive and non-interactive modes. Resolves PATH to commands.
+
+.B Return Value
+.RS 3
+Returns exit codes / error codes (if any)
+.RE
+
+.SH NOTES
+The program doesn't account for flags, fields, precision, or length modifiers.
+
+.SH EXAMPLE
+.RS 3 $ ./hsh
+.PP
+.BR $
+.PP
+.BR $ ls /
+.PP
+.B bin  dev  home  initrd.img.old  lib64   media  opt   root  sbin  sys  usr  var  vmlinuz.old
+.PP
+.B boot  etc  initrd.img  lib   lost+found  mnt  proc  run   srv   tmp  vagrant  vmlinuz
+.RE
+
+.SH SEE ALSO
+.B sh
+.SH AUTHORS
+Artur Adamian <arturadamian@gmail.com>
+Sergii Garkusha <garkusha.sergiy@gmail.com>
