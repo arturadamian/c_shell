@@ -1,4 +1,4 @@
-# 0x15. C - Simple Shell
+# 0x15. C Shell
 
 ![The gates of shell](https://raw.githubusercontent.com/Cu7ious/simple_shell/medium/assets/shell.jpeg)
 
