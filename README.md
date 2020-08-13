@@ -6,11 +6,6 @@
 This is a school project which goal is to mirror the `sh` command-line interpreter (shell), written by Ken Thompson
 in a limited scope.
 
-### Authors
-* Artur Adamian | [GitHub](https://github.com/arturadamian) | [Twitter](https://twitter.com/arturadamian) | [LinkedIn](https://www.linkedin.com/in/arturadamian/)
-
-* Sergii Garkusha [Twitter](https://twitter.com/Cu7ious) | [Email](garkusha.sergiy@gmail.com)
-
 ### Synopsis
 This version of the shell has a collection of custom built-in commands along
 with the functionality of running scripts in the the various paths on a given operating system.
@@ -178,3 +173,10 @@ man ./man_1_simple_shell
 ## Notes
 This shell does not handle aliases, comments, or history.
 
+
+### Author
+
+* Sergii Garkusha [Twitter](https://twitter.com/Cu7ious) | [Email](garkusha.sergiy@gmail.com)
+* Artur Adamian | [GitHub](https://github.com/arturadamian) | [Twitter](https://twitter.com/arturadamian) | [LinkedIn](https://www.linkedin.com/in/arturadamian/)
+
+Hi, I am Artur. I am a Software Engineer student at Holberton School where I currently study Web Development and polish my knowleges in low-level and object-oriented programming, as well as developing strong professional communication skills.
