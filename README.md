@@ -174,7 +174,7 @@ man ./man_1_simple_shell
 This shell does not handle aliases, comments, or history.
 
 
-### Author
+### Authors
 
 * Sergii Garkusha [Twitter](https://twitter.com/Cu7ious) | [Email](garkusha.sergiy@gmail.com)
 * Artur Adamian | [GitHub](https://github.com/arturadamian) | [Twitter](https://twitter.com/arturadamian) | [LinkedIn](https://www.linkedin.com/in/arturadamian/)
