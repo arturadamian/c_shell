@@ -9,7 +9,7 @@ in a limited scope.
 ### Author
 * Artur Adamian | [GitHub](https://github.com/arturadamian) | [Twitter](https://twitter.com/arturadamian) | [LinkedIn](https://www.linkedin.com/in/arturadamian/)
 
-Sergii Garkusha [Twitter](https://twitter.com/Cu7ious) | [Email](garkusha.sergiy@gmail.com)
+* Sergii Garkusha [Twitter](https://twitter.com/Cu7ious) | [Email](garkusha.sergiy@gmail.com)
 
 ### Synopsis
 This version of the shell has a collection of custom built-in commands along
