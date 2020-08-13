@@ -6,8 +6,8 @@
 This is a school project which goal is to mirror the `sh` command-line interpreter (shell), written by Ken Thompson
 in a limited scope.
 
-### Authors
-Artur Adamian [Twitter](https://twitter.com/arturadamian) | [Email](arturadamian@gmail.com)
+### Author
+* Artur Adamian | [GitHub](https://github.com/arturadamian) | [Twitter](https://twitter.com/arturadamian) | [LinkedIn](https://www.linkedin.com/in/arturadamian/)
 
 Sergii Garkusha [Twitter](https://twitter.com/Cu7ious) | [Email](garkusha.sergiy@gmail.com)
 
